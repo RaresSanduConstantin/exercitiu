@@ -1,35 +1,26 @@
-let direction = ['n','s','n','s','n','s','n','s','n','s']
+let direction = ['s','n','n','s','n','s','n','s','n','s']
 
 function isValidWalk(walk) {
-    if(walk.length > 10 || walk.length === 0 || walk.length < 10) {
-        return false
-    } 
+    let dx = 0
+    let dy = 0
+    let dt = walk.length
 
-    let road = [];
-
-    let directions = {
-        'n':'s',
-        
-        'w':'e',
-        
+    
+    for (let i = 0; i < walk.length; i++) {
+     if(walk[i] === 'n'){
+         dx = dx + 1;
+     } else if(walk[i] === 's'){
+         dx = dx - 1;
+     } else if (walk[i] === 'w'){
+         dy = dy + 1;
+     } else if(walk[i] === 'e'){
+         dy = dy -1;
+     }
     }
-    for(let i = 0; i< walk.length; i++){
-        if(walk[i] === 'n' || walk[i] === 'w'){
-            road.push(walk[i])
-        } else {
-            let last = road.pop()
+if(dt === 10 && dx === 0 && dy === 0){
+    return true}
+    return false
 
-            if(walk[i] !== directions[last]){
-                return false;
-            }
-        }
-        
-    }
-
-    if(road.length !== 0) {
-        return false
-    }
-    return true;
-}
+  }
 
 console.log(isValidWalk(direction))
