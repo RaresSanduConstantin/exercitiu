@@ -24,3 +24,4 @@ if(dt === 10 && dx === 0 && dy === 0){
   }
 
 console.log(isValidWalk(direction))
+console.log(123)
